@@ -31,14 +31,19 @@ DLMDSPWP01_PythonProject/
 │ ├── ideal.csv
 │ └── test.csv
 │
+
+
 ├── src/
 │ ├── base_processor.py # Base class for loading, normalizing, and DB operations
 │ ├── derived_processor.py # Derived class for analysis, classification, visualization
 │
+
+
 ├── database.db # SQLite database created by the program
 ├── main.py # Entry point for the full data processing pipeline
 ├── requirements.txt # Python dependencies
 └── README.md # Project documentation (this file)
+
 
 yaml
 Copy code
@@ -193,3 +198,4 @@ Course: DLMDSPWP01 – Programming with Python
 University: IU Internationale Hochschule
 Year: 2025
 Language: Python 3.13#
+
