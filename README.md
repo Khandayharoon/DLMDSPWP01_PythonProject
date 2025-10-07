@@ -24,31 +24,53 @@ The program:
 
 ## 🏗️ Project Structure
 
+---
+
+```text
 DLMDSPWP01_PythonProject/
 │
-├── data/
-│ ├── train.csv
-│ ├── ideal.csv
-│ └── test.csv
+├── data/                              # Folder containing raw and reference datasets
+│   ├── train.csv                      # Training dataset (used to fit the model or logic)
+│   ├── ideal.csv                      # Ideal function data (used for comparison or mapping)
+│   ├── test.csv                       # Test dataset (used for evaluation or validation)
 │
-
-
-├── src/
-│ ├── base_processor.py # Base class for loading, normalizing, and DB operations
-│ ├── derived_processor.py # Derived class for analysis, classification, visualization
+├── db/                                # Folder for database storage
+│   └── database.db                    # SQLite database file (used for caching or persistence)
 │
-
-
-├── database.db # SQLite database created by the program
-├── main.py # Entry point for the full data processing pipeline
-├── requirements.txt # Python dependencies
-└── README.md # Project documentation (this file)
-
-
-yaml
-Copy code
-
----
+├── src/                               # All source code and logic modules
+│   ├── __init__.py                    # Marks 'src' as a Python package
+│   │
+│   ├── base_processor.py              # Base class defining core data processing methods
+│   │                                  # e.g., loading CSV, saving/loading from DB, normalization
+│   │                                  # Common methods shared by multiple processors
+│   │
+│   ├── derived_processor.py           # Derived class inheriting from base_processor.py
+│   │                                  # Implements specific processing logic for the project
+│   │                                  # e.g., function matching, error calculation, visualization
+│   │
+│   ├── utils.py                       # Utility/helper functions (optional)
+│                                      # e.g., logging setup, config readers, or reusable snippets
+│
+├── notebooks/                         # Optional folder for Jupyter notebooks (EDA or testing)
+│   └── exploration.ipynb              # Exploratory Data Analysis and preliminary visualizations
+│                                      # Used for understanding dataset patterns before coding
+│
+├── tests/                             # Unit tests ensuring correctness and stability of code
+│   ├── __init__.py                    # Marks the tests folder as a Python package
+│   └── test_processing.py             # Unit tests for data processing logic
+│                                      # Uses pytest/unittest to validate processor methods
+│
+├── main.py                            # Main entry point of the project
+│                                      # Orchestrates the data pipeline:
+│                                      # 1. Loads data
+│                                      # 2. Processes it via DerivedDataProcessor
+│                                      # 3. Outputs results or saves to DB
+│
+├── requirements.txt                   # List of Python dependencies (for reproducibility)
+│                                      # e.g., pandas, numpy, matplotlib, seaborn, sqlalchemy
+│
+└── README.md                          # Project documentation file
+                                       # Includes overview, setup instructions, and usage guide
 
 ## ⚙️ Installation & Setup Guide
 
@@ -198,4 +220,5 @@ Course: DLMDSPWP01 – Programming with Python
 University: IU Internationale Hochschule
 Year: 2025
 Language: Python 3.13#
+
 
